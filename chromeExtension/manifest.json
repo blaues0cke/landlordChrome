@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+
+    "name":             "Foursquare Landlord extension",
+    "description":      "This extension adds some landlord stuff to foursquare.",
+    "version":          "1.0",
+
+   "permissions":
+    [
+    	"http://api.landlordgame.com:8080/"
+  	],
+    
+    "browser_action":
+    {
+    	"default_icon": "icon-19.png",
+    	"default_title": "Landlord extension",
+    	"default_popup": "popup.html"
+  	},
+
+    "icons":
+    {
+        "48" : "icon-48.png",
+        "128" : "icon-128.png"
+    },
+
+    "content_scripts":
+    [
+        {
+            "matches": 
+            [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "css":        ["style.css"],
+            "js":         ["jquery.1.9.0.min.js", "contentscript.js"],
+            "all_frames": false
+        }
+    ]
+}
